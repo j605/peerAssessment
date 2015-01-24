@@ -18,6 +18,7 @@ activity.labels <- fread(paste(data.dir, "activity_labels.txt", sep="/"))
 
 # Read training data
 train.labels <- fread(paste(train.dir, "y_train.txt", sep="/"))
+# Use read.table as fread segfaults due to different spaces in the document
 train.data <- read.table(paste(train.dir , "X_train.txt", sep="/")
                          , header=F, colClasses="numeric")
 train.data <- as.data.table(train.data)
